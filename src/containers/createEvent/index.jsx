@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
@@ -32,7 +32,7 @@ const locations = [
 	"Hollywood Walk of Fame, LA",
 	"Space Needle, Seattle",
 	"Las Vegas Strip, NV",
-	"Walt Disney World, Florida",
+	"Walt D isney World, Florida",
 	"Statue of Liberty, NY",
 	"Madison Square Garden, NY",
 ];
@@ -40,6 +40,7 @@ const locations = [
 const CreateEvent = () => {
 	const navigate = useNavigate();
 	const notify = () => toast("Event is added successfully");
+
 	const [addAnim, setAddAnim] = useState(false);
 	const [eventData, setEventData] = useState({
 		id: "",
@@ -58,7 +59,18 @@ const CreateEvent = () => {
 	const handleSubmit = e => {
 		e.preventDefault();
 
-		const randomImage = imgArray[Math.floor(Math.random() * imgArray.length)];
+		let prevImage = null;
+
+		function getRandomImage() {
+			let newImage;
+			do {
+				newImage = imgArray[Math.floor(Math.random() * imgArray.length)];
+			} while (newImage === prevImage);
+
+			prevImage = newImage;
+			return newImage;
+		}
+
 		const randomLocation =
 			locations[Math.floor(Math.random() * locations.length)];
 
@@ -71,7 +83,7 @@ const CreateEvent = () => {
 			title: eventData.title,
 			date: eventData.date,
 			category: eventData.category,
-			image: randomImage,
+			image: getRandomImage(),
 			location: randomLocation,
 		};
 

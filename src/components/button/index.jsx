@@ -1,6 +1,5 @@
 import React from "react";
 
-// import download from "../../../assets/images/common/download.png";
 import download from "../../assets/images/common/download.png";
 
 import "./button.scss";

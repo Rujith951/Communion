@@ -61,7 +61,7 @@
 		}
 
 		&.single {
-			grid-template-columns: repeat(335px);
+			grid-template-columns: 33.5rem 33.5rem;
 		}
 
 		.eventCard {
@@ -141,7 +141,7 @@
 }
 
 @media screen and (max-width: 768px) {
-	.evets {
+	.events {
 		.eventsContainer {
 			padding: 10rem 4rem 4rem 4rem;
 
@@ -151,6 +151,12 @@
 
 			h2 {
 				font-size: 4rem;
+			}
+		}
+
+		&Wrapper {
+			&.single {
+				grid-template-columns: 1fr;
 			}
 		}
 	}
