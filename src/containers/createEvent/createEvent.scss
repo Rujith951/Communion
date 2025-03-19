@@ -1,0 +1,149 @@
+@import "../../styles/variables.scss";
+
+.eventFormContainer {
+	width: 100%;
+	height: calc(100vh - 6px);
+	text-align: center;
+	padding: 10rem 6rem 6rem;
+	border-radius: 1rem;
+	background: #f9f9f9;
+	box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.wrapper {
+	margin-bottom: 4rem;
+	h1 {
+		text-align: left;
+		font-size: 5.4rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+	}
+
+	h2 {
+		text-align: left;
+		font-size: 5.4rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		-webkit-text-fill-color: #0000;
+		background: linear-gradient(70deg, #03b8f5, #000);
+		-webkit-background-clip: text;
+		background-clip: text;
+		line-height: 1.2;
+	}
+
+	&Box {
+		@include d-flex($jc: space-between);
+
+		p {
+			color: #666;
+			flex: 1 1;
+			font-size: 2rem;
+			line-height: 1.6;
+			margin: 0;
+			max-width: 1100px;
+			text-align: left;
+		}
+		.explore {
+			align-self: flex-end;
+			border-radius: 2rem;
+
+			&.pulseEffect {
+				animation: pulse 1s infinite;
+			}
+		}
+	}
+}
+
+.eventForm {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+
+	label {
+		display: flex;
+		flex-direction: column;
+		font-size: 1rem;
+		font-weight: 600;
+		text-align: left;
+	}
+
+	input,
+	select {
+		padding: 1rem;
+		font-size: 1rem;
+		border: 0.2rem solid #ccc;
+		border-radius: 0.5rem;
+		transition: 0.2s;
+		margin-top: 1rem;
+		cursor: pointer;
+
+		&:focus {
+			border-color: #007bff;
+			outline: none;
+			box-shadow: 0 0 0.5rem rgba(0, 123, 255, 0.5);
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.eventFormContainer {
+		padding: 10rem 4rem 4rem 4rem;
+
+		.wrapper {
+			margin-bottom: 2.3rem;
+			h1 {
+				font-size: 4rem;
+			}
+
+			h2 {
+				font-size: 4rem;
+			}
+
+			&Box {
+				@include d-flex($fd: column);
+				gap: 2rem;
+
+				.explore {
+					align-self: flex-start;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 568px) {
+	.eventFormContainer {
+		padding: 10rem 2rem 4rem 2rem;
+
+		.wrapper {
+			margin-bottom: 2.3rem;
+			h1 {
+				font-size: 3.5rem;
+			}
+
+			h2 {
+				font-size: 3.5rem;
+			}
+
+			&Box {
+				@include d-flex($fd: column);
+				gap: 2rem;
+
+				p {
+				}
+			}
+		}
+	}
+}
+
+@keyframes pulse {
+	0% {
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3);
+	}
+	50% {
+		box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.3);
+	}
+	100% {
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3);
+	}
+}

@@ -1,0 +1,173 @@
+@import "../../styles/variables.scss";
+
+.events {
+	width: 100%;
+	background-color: #f9f9f9;
+
+	.eventsContainer {
+		padding: 10rem 6rem 6rem 6rem;
+		height: 100vh;
+		overflow-y: scroll;
+
+		h1 {
+			text-align: center;
+			font-size: 5.4rem;
+			font-weight: 500;
+			margin-bottom: 1rem;
+		}
+
+		h2 {
+			text-align: center;
+			font-size: 5.4rem;
+			font-weight: 500;
+			margin-bottom: 4rem;
+			-webkit-text-fill-color: transparent;
+			background: linear-gradient(70deg, #03b8f5, #000);
+			-webkit-background-clip: text;
+			background-clip: text;
+			line-height: 1;
+		}
+	}
+
+	.tags {
+		@include d-flex($jc: center);
+		gap: 0.8rem;
+		margin-bottom: 3rem;
+
+		.tagButton {
+			background: #fff;
+			border: 2px solid grey;
+			padding: 0.8rem 1.6rem;
+			font-size: 1.4rem;
+			font-weight: 600;
+			cursor: pointer;
+			border-radius: 2rem;
+			transition: all 0.3s ease;
+
+			&:hover {
+				background: grey;
+				color: #fff;
+			}
+		}
+	}
+
+	&Wrapper {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+		gap: 2rem;
+
+		&.multiple {
+			grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+		}
+
+		&.single {
+			grid-template-columns: repeat(335px);
+		}
+
+		.eventCard {
+			background: #fff;
+			border-radius: 10px;
+			overflow: hidden;
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+			transition: transform 0.3s ease;
+			@include d-flex($fd: column);
+
+			&:hover {
+				transform: translateY(-0.5rem);
+				z-index: 1;
+			}
+
+			.eventImage {
+				width: 100%;
+				height: 23.5rem;
+				overflow: hidden;
+				object-fit: cover;
+
+				img {
+					width: 100%;
+					height: 100%;
+					// object-fit: cover;
+				}
+			}
+
+			.eventDetails {
+				padding: 1.5rem;
+				@include d-flex($fd: column, $jc: space-between, $al: stretch);
+				flex: 1;
+				width: 100%;
+
+				h3 {
+					font-size: 2rem;
+					font-weight: bold;
+					margin-bottom: 0.5rem;
+				}
+
+				.eventDate {
+					font-size: 1.4rem;
+					color: #777;
+					margin-bottom: 0.5rem;
+				}
+
+				.eventLocation {
+					font-size: 1.6rem;
+					font-weight: 600;
+					margin-bottom: 0.5rem;
+				}
+
+				.eventDescription {
+					font-size: 1.4rem;
+					color: #555;
+					margin-bottom: 1rem;
+				}
+
+				.eventCategory {
+					display: inline-block;
+					background: #03b8f5;
+					color: white;
+					padding: 0.5rem 1rem;
+					border-radius: 0.5rem;
+					font-size: 1.2rem;
+				}
+
+				.buttonBox {
+					margin: 2rem 0 2rem 0;
+				}
+			}
+		}
+	}
+	.addEvent {
+		margin-top: 3.5rem;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.evets {
+		.eventsContainer {
+			padding: 10rem 4rem 4rem 4rem;
+
+			h1 {
+				font-size: 4rem;
+			}
+
+			h2 {
+				font-size: 4rem;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 568px) {
+	.events {
+		.eventsContainer {
+			padding: 10rem 2rem 4rem 2rem;
+
+			h1 {
+				font-size: 3.5rem;
+			}
+
+			h2 {
+				font-size: 3.5rem;
+			}
+		}
+	}
+}

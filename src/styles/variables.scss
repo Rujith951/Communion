@@ -1,0 +1,16 @@
+@mixin d-flex($jc: start, $al: start, $fd: row) {
+	display: flex;
+	justify-content: $jc;
+	align-items: $al;
+	flex-direction: $fd;
+}
+
+@mixin font-style($fs: 1rem, $fw: 500, $lh: 140%) {
+	font-size: $fs;
+	font-weight: $fw;
+	line-height: $lh;
+}
+
+@mixin font-family-inter() {
+	font-family: "inter", serif;
+}

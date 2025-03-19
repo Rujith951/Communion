@@ -1,0 +1,89 @@
+@import "../../styles/variables.scss";
+
+.hero {
+	padding-top: 60px;
+
+	&Container {
+		padding: 5rem 6rem;
+		height: calc(100vh - 60px);
+	}
+
+	&Wrapper {
+		@include d-flex($al: stretch);
+		gap: 3.2rem;
+
+		.contentBox {
+			flex-basis: 50%;
+
+			.limit {
+				color: #007aff;
+				align-self: flex-start;
+				font-size: 1rem;
+				padding: 1rem;
+				border-radius: 2rem;
+				margin-bottom: 1.2rem;
+				width: fit-content;
+				background-color: #fff;
+				border: 0.1rem solid #2e5682;
+				display: block;
+			}
+
+			h3 {
+				font-size: 3rem;
+				font-weight: 1000;
+				line-height: 1;
+				margin-bottom: 3rem;
+			}
+
+			p {
+				color: #000;
+				font-size: 2rem;
+				line-height: 1.4;
+				margin: 0;
+				max-width: none;
+				padding: 0;
+				width: 100%;
+				margin-bottom: 3rem;
+			}
+		}
+
+		.imageBox {
+			flex-basis: 50%;
+			align-self: flex-end;
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.hero {
+		&Container {
+			padding: 4rem;
+		}
+
+		&Wrapper {
+			flex-direction: column;
+			.contentBox {
+				@include d-flex($al: center, $fd: column);
+
+				h3 {
+					text-align: center;
+				}
+
+				p {
+					text-align: center;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 568px) {
+	.hero {
+		&Container {
+			padding: 2rem;
+		}
+
+		&Wrapper {
+		}
+	}
+}

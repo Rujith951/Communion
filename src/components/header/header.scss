@@ -1,0 +1,236 @@
+@import "../../styles/variables.scss";
+
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 60px;
+	z-index: 3;
+
+	&Container {
+		@include d-flex($jc: space-between, $al: center);
+		padding: 1rem 8rem;
+		background-color: #fff;
+		height: 100%;
+	}
+
+	&Logo {
+		width: 19.5rem;
+		height: 3.5rem;
+	}
+
+	&Navs {
+		@include d-flex();
+		gap: 4rem;
+
+		.linkWrap {
+			position: relative;
+			display: inline-block;
+			cursor: pointer;
+
+			span {
+				color: #333333;
+				@include font-style($fs: 1.6rem);
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+				cursor: pointer;
+
+				.arrow {
+					transition: transform 0.3s ease-in-out;
+				}
+			}
+
+			&:hover {
+				span .arrow {
+					transform: rotate(90deg);
+				}
+
+				.links {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+
+			.links {
+				position: absolute;
+				top: 100%;
+				left: 0;
+				background-color: white;
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+				border-radius: 5px;
+				overflow: hidden;
+				min-width: 150px;
+				opacity: 0;
+				visibility: hidden;
+				transition: opacity 0.3s ease, visibility 0.3s ease;
+
+				.link {
+					display: block;
+					padding: 10px;
+					transition: background 0.2s;
+
+					&:hover {
+						background: #f0f0f0;
+					}
+				}
+			}
+		}
+
+		.link {
+			color: #333333;
+			@include font-style($fs: 1.6rem);
+			text-decoration: none;
+
+			&:hover {
+				color: #007bff;
+			}
+		}
+	}
+
+	&Logo {
+		cursor: pointer;
+	}
+
+	.hamburger {
+		gap: 0.6rem;
+		display: none;
+		cursor: pointer;
+		width: 3.4rem;
+		height: 2.4rem;
+		position: relative;
+
+		span {
+			display: block;
+			height: 0.2rem;
+			width: 2.8rem;
+			background-color: #000000;
+			transition: 0.3s ease-in-out;
+			position: absolute;
+
+			&:nth-child(1) {
+				top: 0;
+			}
+
+			&:nth-child(2) {
+				top: 50%;
+				transform: translateY(-50%);
+			}
+
+			&:nth-child(3) {
+				bottom: 0;
+			}
+		}
+
+		&.cross {
+			span {
+				&:nth-child(1) {
+					transform: translateY(11px) rotate(45deg);
+				}
+
+				&:nth-child(2) {
+					opacity: 0;
+				}
+
+				&:nth-child(3) {
+					transform: translateY(-11px) rotate(-45deg);
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.header {
+		&Container {
+			padding: 1rem 4rem;
+		}
+
+		&Navs {
+			gap: 0.5rem;
+			position: fixed;
+			top: 6rem;
+			left: 0;
+			bottom: 0;
+			right: 100%;
+			z-index: 1000;
+			height: calc(100vh - 60px);
+			transition: all 0.4s ease;
+			background-color: #fff;
+			overflow: hidden;
+			flex-direction: column;
+
+			.linkWrap {
+				width: 100%;
+				@include d-flex($fd: column, $jc: center, $al: stretch);
+				border-bottom: 1px solid grey;
+
+				span {
+					padding: 1.2rem 1.6rem;
+					font-size: 1.6rem;
+					font-weight: 600;
+					display: flex;
+					align-items: center;
+					gap: 0.5rem;
+					cursor: pointer;
+				}
+
+				.arrow {
+					transition: transform 0.3s ease-in-out;
+					padding: 0;
+				}
+
+				.links {
+					padding: 0rem 1.6rem;
+					position: static;
+					max-height: 0;
+					overflow: hidden;
+					transition: max-height 0.3s ease-in-out;
+
+					.link {
+						border: none;
+					}
+				}
+
+				&:hover {
+					.links {
+						max-height: 300px;
+					}
+
+					.arrow {
+						transform: rotate(90deg);
+					}
+				}
+			}
+
+			.link {
+				border-bottom: 1px solid grey;
+				padding: 1.2rem 1.6rem;
+				width: 100%;
+				font-size: 1.6rem;
+				font-weight: 600;
+			}
+
+			&.mobileNavs {
+				right: 0;
+			}
+		}
+
+		&ButtonBox {
+			display: none;
+		}
+
+		.hamburger {
+			@include d-flex($fd: column);
+		}
+	}
+}
+
+@media screen and (max-width: 568px) {
+	.header {
+		&Container {
+			padding: 1rem 2rem;
+		}
+	}
+}

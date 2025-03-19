@@ -1,0 +1,62 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	font-size: 10px;
+	font-family: "robot", serif;
+	height: 100vh;
+}
+
+.container {
+	max-width: 1440px;
+	margin: 0 auto;
+}
+
+img {
+	width: 100%;
+}
+
+.commonHeading {
+	margin: 0 auto;
+	width: fit-content;
+	margin-bottom: 6rem;
+
+	h1 {
+		font-size: 5.4rem;
+		font-weight: 1000;
+		text-align: center;
+		letter-spacing: -0.01em;
+		margin-bottom: 1rem;
+		line-height: 1.2;
+	}
+
+	p {
+		color: #666;
+		text-align: center;
+		font-size: 2.3rem;
+		font-weight: 400;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.commonHeading {
+		margin-bottom: 7rem;
+
+		h1 {
+			font-size: 4rem;
+		}
+	}
+}
+@media screen and (max-width: 568px) {
+	.commonHeading {
+		margin-bottom: 6rem;
+
+		h1 {
+			font-size: 3.5rem;
+		}
+	}
+}
